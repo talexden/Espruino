@@ -40,7 +40,7 @@ jobs:
         UPLOADTOKEN: ${{ secrets.UPLOADTOKEN }}  
       run: |
         source ./scripts/provision.sh  ${{ matrix.board }}
-        make
+        make WIZNET=1 RELEASE=1 BOARD=ESP32
         ./scripts/ci_upload.sh
     - name: Upload ${{ matrix.board }} build artifact
       uses: actions/upload-artifact@v3.1.3
